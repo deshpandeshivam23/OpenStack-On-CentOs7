@@ -10,41 +10,41 @@ In this article we will install latest version of OpenStack ‘Stein’ on CentO
 
 # Step 1: Set the Hostname Using hostnamectl command.
 
-    hostnamectl set-hostname openstack
-    hostname
+    # hostnamectl set-hostname openstack
+    # hostname
 
 
 # Step 2: Set the Selinux in Permissive Mode
 
-     setenforce 0
-     vi /etc/sysconfig/selinux
+     # setenforce 0
+     # vi /etc/sysconfig/selinux
          SELINUX=permissive 
 
 
 # Step 3: Disable firewalld & NetworkingManager Service
   
-      systemctl disable firewalld NetworkManager
-      systemctl stop firewalld NetworkManager
-      systemctl enable network
-      systemctl start network
+     # systemctl disable firewalld NetworkManager
+     # systemctl stop firewalld NetworkManager
+     # systemctl enable network
+     # systemctl start network
 
 
 # Step 4: Enable rdo repository & Install OpenStack-Packstack
 
-      yum install -y https://www.rdoproject.org/repos/rdo-release.rpm
-      yum install -y centos-release-openstack-stein
-      yum update -y
+      # yum install -y https://www.rdoproject.org/repos/rdo-release.rpm
+      # yum install -y centos-release-openstack-stein
+      # yum update -y
 
-      yum install -y openstack-packstack  
+      # yum install -y openstack-packstack  
 
 # Step 5: Generate the answer file 
 
-      packstack --gen-answer-file=answerfile.txt
+      # packstack --gen-answer-file=answerfile.txt
 
 # Step 6:  Edit the answer file, set the following parameters and leave rest of parameter as it is.
 
 
-      vi answerfile.txt
+      # vi answerfile.txt
 
       Edit (i)
 
@@ -79,7 +79,7 @@ Note : We can configure bridge itself in answerfile.
  # Step 7: Start OpenStack Installation Using answerfile.txt
 
 
-          pacstack --answer-file=answerfile.txt
+        # pacstack --answer-file=answerfile.txt
 
 
 
